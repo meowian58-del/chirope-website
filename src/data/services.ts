@@ -46,7 +46,7 @@ export const services: BusinessPage[] = [
     slug: 'value-added-services',
     name: 'Value-Added Services',
     shortDescription: 'Customs documentation, warehousing, insurance and tracking support.',
-    heroImage: images.office,
+    heroImage: images.valueAddedSupport,
     overview: 'Value-added services reduce operational gaps around freight movement, especially when orders require storage, sorting or added documentation.',
     capabilities: ['Customs documentation support', 'Warehouse coordination', 'Cargo insurance support', 'Tracking and reporting'],
     process: ['Requirement check', 'Document preparation', 'Warehouse handoff', 'Status update', 'Completion review'],

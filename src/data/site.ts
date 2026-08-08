@@ -24,9 +24,17 @@ export const images = {
   warehouse:
     'https://images.pexels.com/photos/18468444/pexels-photo-18468444.jpeg?auto=compress&cs=tinysrgb&w=1400',
   truck:
-    'https://images.pexels.com/photos/18468444/pexels-photo-18468444.jpeg?auto=compress&cs=tinysrgb&w=1400',
+    'https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=1400',
+  fbaLogistics:
+    'https://images.pexels.com/photos/36696522/pexels-photo-36696522.jpeg?auto=compress&cs=tinysrgb&w=1400',
+  doorDelivery:
+    'https://images.pexels.com/photos/26804204/pexels-photo-26804204.jpeg?auto=compress&cs=tinysrgb&w=1400',
+  warehouseDistribution:
+    'https://images.pexels.com/photos/4480794/pexels-photo-4480794.jpeg?auto=compress&cs=tinysrgb&w=1400',
+  valueAddedSupport:
+    'https://images.pexels.com/photos/6170090/pexels-photo-6170090.jpeg?auto=compress&cs=tinysrgb&w=1400',
   seaContact:
-    'https://images.pexels.com/photos/18468444/pexels-photo-18468444.jpeg?auto=compress&cs=tinysrgb&w=1400',
+    'https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=1400',
   map:
     'https://images.pexels.com/photos/35808457/pexels-photo-35808457.jpeg?auto=compress&cs=tinysrgb&w=1400',
   rail:
