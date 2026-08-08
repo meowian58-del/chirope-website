@@ -1,0 +1,55 @@
+import { images } from './site'
+import type { BusinessPage } from './types'
+
+export const services: BusinessPage[] = [
+  {
+    slug: 'ocean-freight',
+    name: 'Ocean Freight',
+    shortDescription: 'FCL, LCL and consolidated container programs for commercial cargo.',
+    heroImage: images.containers,
+    overview: 'Ocean freight support for recurring B2B shipments that need clear schedules, documentation checks and coordinated destination handoff.',
+    capabilities: ['FCL and LCL planning', 'Consolidation coordination', 'Sailing schedule comparison', 'Customs documentation support'],
+    process: ['Cargo profile review', 'Route and carrier option', 'Booking coordination', 'Document check', 'Destination handoff'],
+    relatedSlugs: ['air-freight', 'road-freight', 'value-added-services'],
+  },
+  {
+    slug: 'air-freight',
+    name: 'Air Freight',
+    shortDescription: 'Commercial air cargo options for urgent, valuable or time-sensitive goods.',
+    heroImage: images.aircraft,
+    overview: 'Air freight coordination for teams that need faster movement, cleaner document preparation and practical timing visibility.',
+    capabilities: ['Commercial air cargo', 'Airport-to-airport support', 'Priority shipment planning', 'Delivery coordination'],
+    process: ['Timing review', 'Air route matching', 'Cargo acceptance check', 'Flight handoff', 'Arrival coordination'],
+    relatedSlugs: ['ocean-freight', 'road-freight', 'value-added-services'],
+  },
+  {
+    slug: 'rail-freight',
+    name: 'Rail Freight',
+    shortDescription: 'Compliant multimodal rail and inland transport coordination.',
+    heroImage: images.rail,
+    overview: 'Rail freight support for general commercial cargo where multimodal timing, paperwork and inland handoff need coordinated planning.',
+    capabilities: ['Container rail planning', 'Multimodal coordination', 'Commercial cargo review', 'Document readiness support'],
+    process: ['Cargo suitability review', 'Mode combination', 'Container planning', 'Transit update', 'Final transfer'],
+    relatedSlugs: ['ocean-freight', 'road-freight', 'value-added-services'],
+  },
+  {
+    slug: 'road-freight',
+    name: 'Road Freight',
+    shortDescription: 'Inland trucking, pickup and delivery coordination for freight programs.',
+    heroImage: images.truck,
+    overview: 'Road freight services connect factory pickup, port drayage, inland transfer and final delivery into one practical plan.',
+    capabilities: ['Pickup coordination', 'Port drayage support', 'Regional delivery', 'Proof of delivery follow-up'],
+    process: ['Address confirmation', 'Truck planning', 'Cargo handoff', 'Delivery update', 'Closing documents'],
+    relatedSlugs: ['ocean-freight', 'air-freight', 'value-added-services'],
+  },
+  {
+    slug: 'value-added-services',
+    name: 'Value-Added Services',
+    shortDescription: 'Customs documentation, warehousing, insurance and tracking support.',
+    heroImage: images.warehouse,
+    overview: 'Value-added services reduce operational gaps around freight movement, especially when orders require storage, sorting or added documentation.',
+    capabilities: ['Customs documentation support', 'Warehouse coordination', 'Cargo insurance support', 'Tracking and reporting'],
+    process: ['Requirement check', 'Document preparation', 'Warehouse handoff', 'Status update', 'Completion review'],
+    relatedSlugs: ['ocean-freight', 'air-freight', 'road-freight'],
+  },
+]

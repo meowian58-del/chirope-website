@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 220" role="img" aria-labelledby="title desc">
+  <title id="title">CHIROPE Freight Service logo</title>
+  <desc id="desc">Blue CHIROPE Freight Service wordmark with circular freight mark.</desc>
+  <g fill="#27aad3">
+    <path d="M96 8c34-9 70-5 100 11-46 3-86 24-112 58-30 39-35 92-12 136C28 194 0 151 0 102 0 58 28 20 96 8Z"/>
+    <path d="M140 16 184 66l-58 14 56 16 16 58 22-52 48 64c-1 18-8 35-20 50-34 44-103 50-153 13-50-37-62-103-28-147 16-22 42-36 73-40Z"/>
+    <path d="M217 55 294 51l-12 64-47-64Z"/>
+    <path d="M282 115 244 205l-18-107Z"/>
+  </g>
+  <g fill="#27aad3" font-family="Aptos, Segoe UI, Arial, sans-serif" font-weight="400" letter-spacing="12">
+    <text x="360" y="98" font-size="82">CHIROPE</text>
+    <text x="365" y="188" font-size="58">FREIGHT SERVICE</text>
+  </g>
+</svg>
