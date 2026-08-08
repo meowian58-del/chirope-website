@@ -28,7 +28,7 @@ export const news: NewsItem[] = [
     id: 'warehouse-handoff',
     date: '2026-07-08',
     title: 'Why warehouse handoff details matter',
-    image: images.warehouse,
+    image: images.warehouseDistribution,
     summary: 'Warehouse requirements affect labels, receiving windows, delivery appointments and split distribution.',
     body: [
       'Warehouse delivery is not only a final step. It can shape carton labels, pallet planning, appointment windows and the sequence of local distribution.',

@@ -79,13 +79,14 @@ import QuoteCtaBand from '../components/common/QuoteCtaBand.vue'
       <div class="container partners-head">
         <div>
           <p class="eyebrow">Carrier Network</p>
-          <h2>Shipping line partners</h2>
+          <h2>Shipping lines and express couriers</h2>
         </div>
-        <p>Carrier relationships support practical sailing options, documentation coordination and reliable handoff planning for commercial ocean cargo.</p>
+        <p>Common carrier and courier networks support route planning, documentation coordination and final delivery handoff for commercial cargo.</p>
       </div>
       <div class="partner-logos">
         <figure v-for="partner in partners" :key="partner.name">
           <img :src="partner.logo" :alt="partner.name" />
+          <figcaption>{{ partner.category }}</figcaption>
         </figure>
       </div>
     </section>

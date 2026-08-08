@@ -5,8 +5,8 @@ export const site = {
   location: 'China',
   tagline: 'Reliable Freight Solutions for Global B2B Trade.',
   colors: {
-    navy: '#264181',
-    orange: '#e68733',
+    navy: '#1688ad',
+    orange: '#27aad3',
   },
 }
 
@@ -22,13 +22,13 @@ export const images = {
   airport:
     'https://images.pexels.com/photos/19856693/pexels-photo-19856693.jpeg?auto=compress&cs=tinysrgb&w=1400',
   warehouse:
-    'https://images.pexels.com/photos/18468444/pexels-photo-18468444.jpeg?auto=compress&cs=tinysrgb&w=1400',
+    'https://images.pexels.com/photos/4480794/pexels-photo-4480794.jpeg?auto=compress&cs=tinysrgb&w=1400',
   truck:
     'https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=1400',
   fbaLogistics:
     'https://images.pexels.com/photos/36696522/pexels-photo-36696522.jpeg?auto=compress&cs=tinysrgb&w=1400',
   doorDelivery:
-    'https://images.pexels.com/photos/26804204/pexels-photo-26804204.jpeg?auto=compress&cs=tinysrgb&w=1400',
+    'https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=1400',
   warehouseDistribution:
     'https://images.pexels.com/photos/4480794/pexels-photo-4480794.jpeg?auto=compress&cs=tinysrgb&w=1400',
   valueAddedSupport:
@@ -46,19 +46,11 @@ export const images = {
 
 export const qualifications = [
   {
-    name: 'Ministry of Commerce Qualification',
+    name: 'Ministry of Commerce International Freight Forwarding Filing',
     image: '/assets/qualifications/ministry-of-commerce.jpg',
   },
   {
     name: 'NVOCC Qualification',
     image: '/assets/qualifications/nvocc.png',
-  },
-  {
-    name: 'WCA Membership',
-    image: '/assets/qualifications/wca.png',
-  },
-  {
-    name: 'Federal Maritime Commission Certification',
-    image: '/assets/qualifications/fmc.png',
   },
 ]

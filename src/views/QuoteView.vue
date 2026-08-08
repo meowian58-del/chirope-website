@@ -1,12 +1,14 @@
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
+import { onMounted, reactive, ref } from 'vue'
 import InnerHero from '../components/common/InnerHero.vue'
 import { images, site } from '../data/site'
 
 const serviceOptions = ['Ocean Freight', 'Air Freight', 'Rail Freight', 'Road Freight', 'Value-Added Services']
-const formSubmitEndpoint = `https://formsubmit.co/ajax/${site.email}`
+const formSubmitEndpoint = `https://formsubmit.co/${site.email}`
+const formSubmitAjaxEndpoint = `https://formsubmit.co/ajax/${site.email}`
 const status = ref<'idle' | 'loading' | 'success' | 'error'>('idle')
 const error = ref('')
+const nextUrl = ref('/quote?sent=1')
 const form = reactive({
   fullName: '',
   companyName: '',
@@ -33,8 +35,16 @@ function resetForm() {
   form.honey = ''
 }
 
-async function submitQuote() {
+onMounted(() => {
+  nextUrl.value = `${window.location.origin}/quote?sent=1`
+  if (new URLSearchParams(window.location.search).get('sent') === '1') {
+    status.value = 'success'
+  }
+})
+
+async function submitQuote(event: Event) {
   if (status.value === 'loading') return
+  const quoteForm = event.currentTarget instanceof HTMLFormElement ? event.currentTarget : null
   if (form.honey) {
     status.value = 'success'
     return
@@ -44,26 +54,12 @@ async function submitQuote() {
   error.value = ''
   const controller = new AbortController()
   const timeoutId = window.setTimeout(() => controller.abort(), 15000)
-  const payload = {
-    'Full Name': form.fullName,
-    'Company Name': form.companyName,
-    'Business Email': form.businessEmail,
-    'Phone / WhatsApp': form.phone,
-    'Service Needed': form.serviceNeeded,
-    'Cargo Type': form.cargoType,
-    Origin: form.origin,
-    Destination: form.destination,
-    Message: form.message,
-    _subject: 'New Quote Request from CHIROPE Website',
-    _captcha: 'false',
-    _template: 'table',
-    _honey: form.honey,
-  }
   try {
-    const response = await fetch(formSubmitEndpoint, {
+    const formData = quoteForm ? new FormData(quoteForm) : new FormData()
+    const response = await fetch(formSubmitAjaxEndpoint, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify(payload),
+      headers: { Accept: 'application/json' },
+      body: formData,
       signal: controller.signal,
     })
     const result = await response.json().catch(() => null)
@@ -73,6 +69,10 @@ async function submitQuote() {
     resetForm()
     status.value = 'success'
   } catch (caughtError) {
+    if (quoteForm) {
+      quoteForm.submit()
+      return
+    }
     status.value = 'error'
     error.value =
       caughtError instanceof DOMException && caughtError.name === 'AbortError'
@@ -103,6 +103,7 @@ async function submitQuote() {
         <input type="hidden" name="_subject" value="New Quote Request from CHIROPE Website" />
         <input type="hidden" name="_captcha" value="false" />
         <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_next" :value="nextUrl" />
         <label>Full Name<input v-model="form.fullName" name="Full Name" autocomplete="name" required /></label>
         <label>Company Name<input v-model="form.companyName" name="Company Name" autocomplete="organization" required /></label>
         <label>Business Email<input v-model="form.businessEmail" name="Business Email" type="email" autocomplete="email" required /></label>

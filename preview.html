@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <title>CHIROPE Freight Service Preview</title>
+    <style>
+      :root {
+        --navy: #264181;
+        --orange: #e68733;
+        --ink: #1f2a44;
+        --muted: #6b7280;
+        --soft: #f5f7fb;
+        --blue-soft: #eef3f9;
+        --border: #e5eaf1;
+        --top: #2f3542;
+        --footer: #1f2430;
+        --white: #fbfcff;
+        --max: 1180px;
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--white);
+        font-family: "Segoe UI", "Microsoft YaHei UI", sans-serif;
+        line-height: 1.65;
+      }
+      a { color: inherit; text-decoration: none; }
+      img { display: block; max-width: 100%; }
+      .container { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
+
+      .top-bar { background: var(--top); color: #eaf0fb; font-size: 13px; }
+      .top-bar .container { min-height: 32px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+
+      header { position: sticky; top: 0; z-index: 10; background: #fff; border-bottom: 1px solid var(--border); }
+      .header-inner { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+      .brand img { width: 190px; }
+      nav { display: flex; align-items: center; gap: 18px; font-size: 14px; font-weight: 700; }
+      nav a { min-height: 44px; display: inline-flex; align-items: center; }
+      nav a.active { color: var(--navy); box-shadow: inset 0 -3px var(--navy); }
+      .quote-button { padding: 0 18px; border-radius: 4px; background: var(--orange); color: #fff; box-shadow: none; }
+
+      h1, h2, h3, p { overflow-wrap: anywhere; }
+      h1, h2, h3 { margin: 0; line-height: 1.12; }
+      h1 { font-size: clamp(40px, 5vw, 70px); }
+      h2 { font-size: clamp(28px, 3vw, 44px); }
+      h3 { font-size: 21px; }
+      p { color: var(--muted); }
+      .eyebrow { margin: 0 0 10px; color: var(--navy); font-size: 13px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+
+      .hero {
+        min-height: clamp(540px, 58vw, 720px);
+        display: grid;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        color: #fff;
+        background:
+          linear-gradient(90deg, rgba(18,32,70,.92), rgba(38,65,129,.58) 48%, rgba(38,65,129,.18)),
+          url("https://images.pexels.com/photos/12069460/pexels-photo-12069460.jpeg?auto=compress&cs=tinysrgb&w=1800") center / cover no-repeat;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(0,0,0,.1), rgba(0,0,0,.28));
+      }
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0;
+        height: 18%;
+        background:
+          repeating-linear-gradient(90deg, rgba(255,255,255,.16) 0 2px, transparent 2px 120px),
+          linear-gradient(rgba(13,58,99,.35), rgba(13,58,99,.65));
+      }
+      .hero .container { position: relative; z-index: 1; }
+      .hero p { max-width: 560px; margin: 14px 0 0; color: rgba(255,255,255,.9); font-size: clamp(18px, 1.7vw, 23px); }
+      .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+      .hero-actions a, .center-button, .line-button {
+        min-height: 46px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 20px;
+        border-radius: 4px;
+        font-weight: 850;
+      }
+      .hero-actions a:first-child, .center-button { background: var(--orange); color: #fff; }
+      .hero-actions a:last-child, .line-button { border: 1px solid currentColor; color: inherit; }
+
+      .section { padding: clamp(72px, 8vw, 118px) 0; }
+      .section-title { width: min(680px, calc(100% - 40px)); margin: 0 auto 34px; text-align: center; }
+      .section-title p { margin: 10px 0 0; }
+      .service-cards { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+      .service-card {
+        min-height: 270px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        background: #fff;
+        box-shadow: 0 8px 24px rgba(31,42,68,.04);
+      }
+      .service-card img {
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        object-fit: cover;
+      }
+      .service-card div { padding: 28px 20px 30px; text-align: center; }
+      .service-card b { color: var(--navy); }
+
+      .overview {
+        display: grid;
+        grid-template-columns: 1fr .9fr;
+        gap: clamp(28px, 6vw, 80px);
+        align-items: center;
+        background: var(--soft);
+      }
+      .map-panel {
+        min-height: 320px;
+        position: relative;
+        border: 1px solid var(--border);
+        background:
+          radial-gradient(circle at 25% 40%, var(--orange) 0 5px, transparent 6px),
+          radial-gradient(circle at 44% 26%, var(--orange) 0 5px, transparent 6px),
+          radial-gradient(circle at 63% 48%, var(--orange) 0 5px, transparent 6px),
+          radial-gradient(circle at 76% 32%, var(--orange) 0 5px, transparent 6px),
+          linear-gradient(120deg, transparent 20%, rgba(38,65,129,.12) 20% 22%, transparent 22% 42%, rgba(38,65,129,.12) 42% 44%, transparent 44%),
+          #fff;
+      }
+      .map-panel::after {
+        content: "GLOBAL FREIGHT ROUTE";
+        position: absolute;
+        right: 24px;
+        bottom: 20px;
+        color: #c5ccd8;
+        font-size: 28px;
+        font-weight: 900;
+        letter-spacing: .08em;
+      }
+      .about-copy { padding-left: max(20px, calc((100vw - var(--max)) / 2)); }
+      .about-media {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        padding-right: max(20px, calc((100vw - var(--max)) / 2));
+      }
+      .about-media img {
+        width: 100%;
+        height: 100%;
+        min-height: 190px;
+        object-fit: cover;
+      }
+      .about-media img:first-child { grid-column: 1 / -1; aspect-ratio: 16 / 7; }
+
+      .trust-band {
+        padding: 58px 0;
+        color: white;
+        background:
+          linear-gradient(rgba(38,65,129,.9), rgba(38,65,129,.9)),
+          repeating-linear-gradient(90deg, #1e356d 0 120px, #243d7b 120px 240px);
+      }
+      .trust-inner { display: grid; grid-template-columns: 1fr 300px; gap: 36px; align-items: end; }
+      .trust-inner p { margin: 0 0 8px; color: #fff; font-size: 13px; letter-spacing: .08em; }
+      .trust-inner aside { padding: 28px; background: var(--orange); }
+      .trust-inner aside span { display: block; margin-top: 10px; }
+
+      .advantages { display: grid; grid-template-columns: .9fr 1.4fr; gap: 0; align-items: stretch; }
+      .ship-block {
+        min-height: 270px;
+        background:
+          linear-gradient(rgba(38,65,129,.1), rgba(38,65,129,.1)),
+          url("https://images.pexels.com/photos/35808457/pexels-photo-35808457.jpeg?auto=compress&cs=tinysrgb&w=1400") center / cover no-repeat;
+      }
+      .advantage-grid { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--blue-soft); }
+      .advantage-grid article { padding: 30px 20px; text-align: center; border-left: 1px solid var(--border); }
+      .advantage-grid .hot { background: var(--orange); color: white; }
+      .advantage-grid .hot p { color: rgba(255,255,255,.88); }
+
+      .soft { background: var(--soft); }
+      .image-card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+      .image-card-grid article { overflow: hidden; background: #fff; border: 1px solid var(--border); }
+      .media-image {
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        object-fit: cover;
+      }
+      .image-card-grid h3, .image-card-grid p { padding-inline: 18px; }
+      .image-card-grid h3 { margin-top: 18px; }
+      .image-card-grid p { padding-bottom: 20px; }
+
+      .partners-section { padding: 62px 0; background: #fff; }
+      .partners-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 28px;
+        margin-bottom: 26px;
+      }
+      .partners-head p { max-width: 470px; margin: 0; }
+      .partner-logos {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        border: 1px solid var(--border);
+        background: #fff;
+      }
+      .partner-logos figure {
+        min-height: 118px;
+        margin: 0;
+        padding: 22px;
+        display: grid;
+        place-items: center;
+        border-right: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+      }
+      .partner-logos figure:nth-child(4n) { border-right: 0; }
+      .partner-logos figure:nth-last-child(-n+4) { border-bottom: 0; }
+      .partner-logos img {
+        max-height: 64px;
+        width: min(100%, 190px);
+        object-fit: contain;
+      }
+
+      .quote-cta {
+        padding: 54px 0;
+        color: white;
+        background:
+          linear-gradient(rgba(38,65,129,.88), rgba(38,65,129,.88)),
+          repeating-linear-gradient(90deg, #1e356d 0 120px, #243d7b 120px 240px);
+      }
+      .quote-cta .container { display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+      .quote-cta p { color: #fff; margin: 0 0 8px; font-size: 13px; letter-spacing: .08em; }
+
+      footer { background: var(--footer); color: #d8dde8; }
+      .footer-grid { display: grid; grid-template-columns: 1.25fr 1fr 1fr .8fr; gap: 46px; padding-block: 58px; }
+      .footer-logo { width: 210px; }
+      footer p, footer span { color: #b9c0cd; }
+      footer h2 { margin-bottom: 8px; color: white; font-size: 18px; }
+      footer nav { display: grid; align-content: start; gap: 10px; }
+      .footer-bottom {
+        min-height: 46px;
+        padding: 12px 20px;
+        border-top: 1px solid rgba(255,255,255,.15);
+        display: flex;
+        justify-content: center;
+        gap: 24px;
+        flex-wrap: wrap;
+        color: #b9c0cd;
+        font-size: 13px;
+      }
+
+      @media (max-width: 1024px) {
+        .service-cards, .advantage-grid, .footer-grid, .partner-logos { grid-template-columns: repeat(2, 1fr); }
+        .overview, .advantages, .trust-inner { grid-template-columns: 1fr; }
+        .about-copy, .about-media { padding-inline: max(20px, calc((100vw - var(--max)) / 2)); }
+        .partner-logos figure:nth-child(odd) { border-right: 1px solid var(--border); }
+        .partner-logos figure:nth-child(even) { border-right: 0; }
+        .partner-logos figure:nth-last-child(-n+4) { border-bottom: 1px solid var(--border); }
+        .partner-logos figure:nth-last-child(-n+2) { border-bottom: 0; }
+      }
+      @media (max-width: 760px) {
+        .container { width: min(100% - 28px, var(--max)); }
+        .top-bar .container { justify-content: center; }
+        .top-bar span { display: none; }
+        .header-inner { align-items: flex-start; padding-block: 14px; }
+        nav { display: none; }
+        .brand img { width: 156px; }
+        .hero { min-height: 480px; }
+        .service-cards, .image-card-grid, .advantage-grid, .footer-grid, .quote-cta .container, .about-media, .partner-logos { grid-template-columns: 1fr; }
+        .quote-cta .container { display: grid; }
+        .about-media img:first-child { grid-column: auto; aspect-ratio: 16 / 10; }
+        .partners-head { display: block; }
+        .partner-logos figure, .partner-logos figure:nth-child(odd), .partner-logos figure:nth-child(even) { border-right: 0; }
+        .partner-logos figure:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+        .partner-logos figure:last-child { border-bottom: 0; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top-bar">
+      <div class="container">
+        <span>Global B2B freight coordination</span>
+        <a href="mailto:official@chirope.cn">official@chirope.cn</a>
+      </div>
+    </div>
+
+    <header>
+      <div class="container header-inner">
+        <a class="brand" href="#">
+          <img src="assets/chirope-logo.png" alt="CHIROPE Freight Service Limited" />
+        </a>
+        <nav aria-label="Preview navigation">
+          <a class="active" href="#">Home</a>
+          <a href="#services">Services</a>
+          <a href="#solutions">Solutions</a>
+          <a href="#about">About Us</a>
+          <a href="#news">News</a>
+          <a class="quote-button" href="mailto:official@chirope.cn">Get A Quote</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <h1>CHIROPE Freight Service</h1>
+          <p>Reliable freight coordination for global B2B trade.</p>
+          <div class="hero-actions">
+            <a href="mailto:official@chirope.cn">Get A Quote</a>
+            <a href="#services">Explore Services</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="section">
+        <div class="section-title">
+          <h2>Services Preview</h2>
+          <p>Mode-by-mode logistics support from origin planning to destination handoff.</p>
+        </div>
+        <div class="container service-cards">
+          <article class="service-card"><img src="https://images.pexels.com/photos/12069460/pexels-photo-12069460.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Container ship at port" /><div><h3>Ocean Freight</h3><p>FCL, LCL and consolidated container programs.</p><b>Learn More</b></div></article>
+          <article class="service-card"><img src="https://images.pexels.com/photos/19856693/pexels-photo-19856693.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Air cargo aircraft on apron" /><div><h3>Air Freight</h3><p>Commercial air cargo options for urgent shipments.</p><b>Learn More</b></div></article>
+          <article class="service-card"><img src="https://images.pexels.com/photos/35808457/pexels-photo-35808457.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Rail freight containers" /><div><h3>Rail Freight</h3><p>Compliant multimodal rail and inland coordination.</p><b>Learn More</b></div></article>
+          <article class="service-card"><img src="https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Road freight truck on highway" /><div><h3>Road Freight</h3><p>Pickup, trucking and destination delivery support.</p><b>Learn More</b></div></article>
+          <article class="service-card"><img src="assets/photos/chirope-office.png" alt="CHIROPE office logistics planning meeting" /><div><h3>Value-Added Services</h3><p>Documentation, warehouse, insurance and tracking.</p><b>Learn More</b></div></article>
+        </div>
+      </section>
+
+      <section id="about" class="section overview">
+        <div class="container" style="display: contents">
+          <div class="about-copy">
+            <p class="eyebrow">CHIROPE FREIGHT SERVICE LIMITED</p>
+            <h2>Freight service built around clear ownership.</h2>
+            <p>CHIROPE supports B2B cargo teams with ocean, air, rail, road, warehouse and delivery coordination, keeping each shipment plan clear from origin preparation to final handoff.</p>
+            <a class="line-button" href="#services">Learn More</a>
+          </div>
+          <div class="about-media" aria-label="CHIROPE company photos">
+            <img src="assets/photos/chirope-office.png" alt="CHIROPE office meeting" />
+            <img src="assets/photos/chirope-team.png" alt="CHIROPE team group photo" />
+            <img src="assets/photos/chirope-outing.png" alt="CHIROPE team building activity" />
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-band">
+        <div class="container trust-inner">
+          <div>
+            <p>COMPLIANCE AND SAFETY</p>
+            <h2>CHIROPE is your reliable supply chain service partner.</h2>
+            <span>Freight coordination, document readiness and delivery handoff support.</span>
+          </div>
+          <aside>
+            <strong>Global Service Layout</strong>
+            <span>Ocean, air, rail, road, warehouse and delivery support for commercial cargo.</span>
+          </aside>
+        </div>
+      </section>
+
+      <section class="container section advantages">
+        <div class="ship-block" aria-label="Container ship illustration"></div>
+        <div class="advantage-grid">
+          <article><h3>Quality Management</h3><p>Clear cargo checks and service ownership.</p></article>
+          <article class="hot"><h3>Information Support</h3><p>Shipment updates and practical coordination.</p></article>
+          <article><h3>Timely Response</h3><p>Fast quote handling and route follow-up.</p></article>
+          <article><h3>Customized Service</h3><p>Plans based on cargo profile and delivery need.</p></article>
+        </div>
+      </section>
+
+      <section class="partners-section">
+        <div class="container">
+          <div class="partners-head">
+            <div>
+              <p class="eyebrow">Carrier Network</p>
+              <h2>Shipping line partners</h2>
+            </div>
+            <p>Carrier relationships support practical sailing options, documentation coordination and reliable handoff planning for commercial ocean cargo.</p>
+          </div>
+          <div class="partner-logos" aria-label="Shipping line logos">
+            <figure><img src="assets/partners/maersk.png" alt="Maersk" /></figure>
+            <figure><img src="assets/partners/hapag-lloyd.png" alt="Hapag-Lloyd" /></figure>
+            <figure><img src="assets/partners/msc.png" alt="MSC" /></figure>
+            <figure><img src="assets/partners/oocl.png" alt="OOCL" /></figure>
+            <figure><img src="assets/partners/cma-cgm.png" alt="CMA CGM" /></figure>
+            <figure><img src="assets/partners/evergreen.png" alt="Evergreen" /></figure>
+            <figure><img src="assets/partners/one.png" alt="Ocean Network Express" /></figure>
+            <figure><img src="assets/partners/cosco.png" alt="COSCO Shipping" /></figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="solutions" class="section soft">
+        <div class="section-title">
+          <h2>Solutions</h2>
+          <p>Programs for repeat shipping, marketplace inbound and warehouse distribution.</p>
+        </div>
+        <div class="container image-card-grid">
+          <article><img class="media-image" src="https://images.pexels.com/photos/4480794/pexels-photo-4480794.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Warehouse truck logistics" /><h3>FBA Logistics Solution</h3><p>Inbound logistics support for marketplace sellers.</p></article>
+          <article><img class="media-image" src="https://images.pexels.com/photos/12069460/pexels-photo-12069460.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Commercial ocean cargo shipping" /><h3>Commercial Cargo Shipping</h3><p>B2B cargo programs for importers and distributors.</p></article>
+          <article><img class="media-image" src="https://images.pexels.com/photos/35808457/pexels-photo-35808457.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Container rail logistics" /><h3>Warehouse & Distribution</h3><p>Storage, sorting, split delivery and distribution.</p></article>
+        </div>
+      </section>
+
+      <section id="news" class="section">
+        <div class="section-title">
+          <h2>News Information</h2>
+          <p>Practical freight notes for cargo teams.</p>
+        </div>
+        <div class="container image-card-grid">
+          <article><img class="media-image" src="assets/photos/chirope-office.png" alt="CHIROPE freight planning meeting" /><h3>How cargo preparation improves freight timing</h3><p>Clear carton data and pickup instructions reduce avoidable delays.</p></article>
+          <article><img class="media-image" src="https://images.pexels.com/photos/19856693/pexels-photo-19856693.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Air freight and multimodal cargo" /><h3>Choosing ocean, air, rail or road</h3><p>Mode selection balances lead time, cargo value and destination handoff.</p></article>
+          <article><img class="media-image" src="https://images.pexels.com/photos/4480794/pexels-photo-4480794.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Warehouse handoff and road freight" /><h3>Why warehouse handoff details matter</h3><p>Warehouse requirements affect labels, appointments and distribution.</p></article>
+        </div>
+      </section>
+
+      <section class="quote-cta">
+        <div class="container">
+          <div>
+            <p>PROFESSIONAL, SAFE, TIMELY AND FAST</p>
+            <h2>Plan your next shipment with CHIROPE.</h2>
+            <span>For ocean, air, rail, road, FBA and warehouse logistics support.</span>
+          </div>
+          <a class="center-button" href="mailto:official@chirope.cn">Get A Quote</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-grid">
+        <div>
+          <img class="footer-logo" src="assets/chirope-logo.png" alt="CHIROPE Freight Service Limited" />
+          <p>Reliable Freight Solutions for Global B2B Trade.</p>
+          <a href="mailto:official@chirope.cn">official@chirope.cn</a>
+          <span>China</span>
+        </div>
+        <nav>
+          <h2>Services</h2>
+          <a href="#services">Ocean Freight</a>
+          <a href="#services">Air Freight</a>
+          <a href="#services">Rail Freight</a>
+          <a href="#services">Road Freight</a>
+        </nav>
+        <nav>
+          <h2>Solutions</h2>
+          <a href="#solutions">FBA Logistics</a>
+          <a href="#solutions">Commercial Cargo</a>
+          <a href="#solutions">Warehouse Distribution</a>
+        </nav>
+        <nav>
+          <h2>Company</h2>
+          <a href="#about">About Us</a>
+          <a href="#news">News</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <span>Copyright 2026 CHIROPE FREIGHT SERVICE LIMITED. All rights reserved.</span>
+        <span>Privacy Policy</span>
+        <a href="https://beian.miit.gov.cn/" target="_blank" rel="noreferrer">粤ICP备20012173号-1</a>
+      </div>
+    </footer>
+  </body>
+</html>
