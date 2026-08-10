@@ -28,7 +28,7 @@ export const images = {
   warehouse:
     'https://images.pexels.com/photos/4480794/pexels-photo-4480794.jpeg?auto=compress&cs=tinysrgb&w=1400',
   warehouseOverview:
-    'https://images.pexels.com/photos/26804204/pexels-photo-26804204.jpeg?auto=compress&cs=tinysrgb&w=1400',
+    'https://images.pexels.com/photos/6170090/pexels-photo-6170090.jpeg?auto=compress&cs=tinysrgb&w=1400',
   truck:
     'https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=1400',
   truckOverview:
@@ -36,7 +36,7 @@ export const images = {
   fbaLogistics:
     'https://images.pexels.com/photos/36696522/pexels-photo-36696522.jpeg?auto=compress&cs=tinysrgb&w=1400',
   fbaOverview:
-    'https://images.pexels.com/photos/21838827/pexels-photo-21838827.jpeg?auto=compress&cs=tinysrgb&w=1400',
+    'https://images.pexels.com/photos/4480794/pexels-photo-4480794.jpeg?auto=compress&cs=tinysrgb&w=1400',
   doorDelivery:
     'https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=1400',
   doorDeliveryOverview:
