@@ -17,7 +17,7 @@ const related = computed(() =>
     <InnerHero :title="page.name" :subtitle="page.shortDescription" :image="page.heroImage" />
 
     <section class="section detail-overview">
-      <img :src="page.heroImage" :alt="page.name" />
+      <img :src="page.overviewImage || page.heroImage" :alt="`${page.name} operations`" />
       <article>
         <p class="eyebrow">Service Overview</p>
         <h2>{{ page.name }} coordination for commercial cargo teams.</h2>

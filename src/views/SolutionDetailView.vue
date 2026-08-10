@@ -22,7 +22,7 @@ const related = computed(() =>
         <h2>Support for cargo teams with repeat operational requirements.</h2>
         <p>Customers need clear service scope, document readiness, warehouse instructions and delivery timing aligned before the shipment moves.</p>
       </article>
-      <img :src="page.heroImage" :alt="page.name" />
+      <img :src="page.overviewImage || page.heroImage" :alt="`${page.name} operations`" />
     </section>
 
     <section class="section solution-overview soft">

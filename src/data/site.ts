@@ -17,22 +17,38 @@ export const images = {
     'https://images.pexels.com/photos/12069460/pexels-photo-12069460.jpeg?auto=compress&cs=tinysrgb&w=1800',
   containers:
     'https://images.pexels.com/photos/12069460/pexels-photo-12069460.jpeg?auto=compress&cs=tinysrgb&w=1400',
+  oceanOverview:
+    'https://images.pexels.com/photos/13766333/pexels-photo-13766333.jpeg?auto=compress&cs=tinysrgb&w=1400',
   aircraft:
     'https://images.pexels.com/photos/19856693/pexels-photo-19856693.jpeg?auto=compress&cs=tinysrgb&w=1400',
+  airOverview:
+    'https://images.pexels.com/photos/32642359/pexels-photo-32642359.jpeg?auto=compress&cs=tinysrgb&w=1400',
   airport:
     'https://images.pexels.com/photos/19856693/pexels-photo-19856693.jpeg?auto=compress&cs=tinysrgb&w=1400',
   warehouse:
     'https://images.pexels.com/photos/4480794/pexels-photo-4480794.jpeg?auto=compress&cs=tinysrgb&w=1400',
+  warehouseOverview:
+    'https://images.pexels.com/photos/26804204/pexels-photo-26804204.jpeg?auto=compress&cs=tinysrgb&w=1400',
   truck:
     'https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=1400',
+  truckOverview:
+    'https://images.pexels.com/photos/15595843/pexels-photo-15595843.jpeg?auto=compress&cs=tinysrgb&w=1400',
   fbaLogistics:
     'https://images.pexels.com/photos/36696522/pexels-photo-36696522.jpeg?auto=compress&cs=tinysrgb&w=1400',
+  fbaOverview:
+    'https://images.pexels.com/photos/21838827/pexels-photo-21838827.jpeg?auto=compress&cs=tinysrgb&w=1400',
   doorDelivery:
     'https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=1400',
+  doorDeliveryOverview:
+    'https://images.pexels.com/photos/6407553/pexels-photo-6407553.jpeg?auto=compress&cs=tinysrgb&w=1400',
   warehouseDistribution:
     'https://images.pexels.com/photos/4480794/pexels-photo-4480794.jpeg?auto=compress&cs=tinysrgb&w=1400',
   valueAddedSupport:
     'https://images.pexels.com/photos/6170090/pexels-photo-6170090.jpeg?auto=compress&cs=tinysrgb&w=1400',
+  valueAddedOverview:
+    'https://images.pexels.com/photos/5025512/pexels-photo-5025512.jpeg?auto=compress&cs=tinysrgb&w=1400',
+  railOverview:
+    'https://images.pexels.com/photos/29310005/pexels-photo-29310005.jpeg?auto=compress&cs=tinysrgb&w=1400',
   seaContact:
     'https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=1400',
   map:
