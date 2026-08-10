@@ -12,6 +12,7 @@ export interface BusinessPage {
 
 export interface NewsItem {
   id: string
+  slug: string
   date: string
   title: string
   image: string

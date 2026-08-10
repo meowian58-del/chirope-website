@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import ServiceDetailView from '../views/ServiceDetailView.vue'
 import SolutionDetailView from '../views/SolutionDetailView.vue'
 import AboutView from '../views/AboutView.vue'
+import NewsDetailView from '../views/NewsDetailView.vue'
 import NewsView from '../views/NewsView.vue'
 import QuoteView from '../views/QuoteView.vue'
 import PrivacyView from '../views/PrivacyView.vue'
@@ -27,6 +28,7 @@ export const router = createRouter({
     { path: '/warehouse-distribution', component: SolutionDetailView },
     { path: '/about', component: AboutView },
     { path: '/news', component: NewsView },
+    { path: '/news/:slug', component: NewsDetailView },
     { path: '/quote', component: QuoteView },
     { path: '/privacy', component: PrivacyView },
     { path: '/:pathMatch(.*)*', component: NotFoundView },

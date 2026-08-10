@@ -1,10 +1,7 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import InnerHero from '../components/common/InnerHero.vue'
 import { news } from '../data/news'
 import { images } from '../data/site'
-
-const activeId = ref(news[0]?.id || '')
 </script>
 
 <template>
@@ -17,12 +14,7 @@ const activeId = ref(news[0]?.id || '')
           <time>{{ item.date }}</time>
           <h2>{{ item.title }}</h2>
           <p>{{ item.summary }}</p>
-          <div v-if="activeId === item.id" class="news-body">
-            <p v-for="paragraph in item.body" :key="paragraph">{{ paragraph }}</p>
-          </div>
-          <button type="button" @click="activeId = activeId === item.id ? '' : item.id">
-            {{ activeId === item.id ? 'Collapse' : 'Read More' }}
-          </button>
+          <RouterLink class="news-read-more" :to="`/news/${item.slug}`">Read More</RouterLink>
         </div>
       </article>
     </section>

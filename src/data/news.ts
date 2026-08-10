@@ -4,6 +4,7 @@ import type { NewsItem } from './types'
 export const news: NewsItem[] = [
   {
     id: 'cargo-preparation',
+    slug: 'cargo-preparation',
     date: '2026-08-01',
     title: 'How cargo preparation improves freight timing',
     image: images.office,
@@ -15,6 +16,7 @@ export const news: NewsItem[] = [
   },
   {
     id: 'mode-selection',
+    slug: 'freight-mode-selection',
     date: '2026-07-20',
     title: 'Choosing ocean, air, rail or road for commercial cargo',
     image: images.aircraft,
@@ -26,6 +28,7 @@ export const news: NewsItem[] = [
   },
   {
     id: 'warehouse-handoff',
+    slug: 'warehouse-handoff',
     date: '2026-07-08',
     title: 'Why warehouse handoff details matter',
     image: images.warehouseDistribution,
@@ -37,6 +40,7 @@ export const news: NewsItem[] = [
   },
   {
     id: 'quote-readiness',
+    slug: 'freight-quote-readiness',
     date: '2026-06-18',
     title: 'What to include in a freight quote request',
     image: images.rail,
@@ -48,6 +52,7 @@ export const news: NewsItem[] = [
   },
   {
     id: 'documentation',
+    slug: 'documentation-readiness',
     date: '2026-06-02',
     title: 'Documentation readiness for B2B logistics',
     image: images.team,

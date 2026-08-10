@@ -301,8 +301,35 @@ h3 { font-size: 21px; }
 .news-item img { width: 100%; aspect-ratio: 16/10; object-fit: cover; }
 .news-item time { color: var(--navy); font-weight: 800; }
 .news-item p { color: var(--muted); }
-.news-item button, .quote-form button { min-height: 44px; padding: 0 18px; border: 1px solid var(--navy); border-radius: 999px; background: white; color: var(--navy); font-weight: 800; cursor: pointer; }
+.news-read-more, .news-item button, .quote-form button { min-height: 44px; padding: 0 18px; border: 1px solid var(--navy); border-radius: 999px; background: white; color: var(--navy); font-weight: 800; cursor: pointer; }
+.news-read-more { width: fit-content; display: inline-flex; align-items: center; justify-content: center; }
 .news-body { margin-top: 12px; border-top: 1px solid var(--border); }
+.article-detail {
+  width: min(var(--max), calc(100% - 40px));
+  margin-inline: auto;
+  padding-block: 78px;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: clamp(30px, 6vw, 74px);
+}
+.article-sidebar {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  color: var(--muted);
+  font-weight: 800;
+}
+.article-sidebar a { color: var(--navy); }
+.article-content {
+  max-width: 760px;
+  color: var(--muted);
+  font-size: 19px;
+}
+.article-content p:first-child {
+  margin-top: 0;
+  color: var(--ink);
+  font-size: 22px;
+}
 
 .quote-page { padding-block: 78px; display: grid; grid-template-columns: .85fr 1.15fr; gap: 58px; }
 .quote-page aside a { display: block; margin: 16px 0; color: var(--navy); font-size: 24px; font-weight: 900; }
@@ -338,7 +365,7 @@ input:focus, select:focus, textarea:focus { outline: 3px solid rgba(39,170,211,.
 @media (max-width: 1024px) {
   .service-cards, .solutions-preview .image-card-grid, .advantage-grid, .detail-grid, .related-cards, .qualification-grid, .footer-grid { grid-template-columns: repeat(2, 1fr); }
   .partner-logos { grid-template-columns: repeat(4, 1fr); }
-  .overview-section, .advantages, .detail-overview, .why-section, .about-profile, .about-cards, .culture-grid, .quote-page { grid-template-columns: 1fr; }
+  .overview-section, .advantages, .detail-overview, .why-section, .about-profile, .about-cards, .culture-grid, .quote-page, .article-detail { grid-template-columns: 1fr; }
   .process-list { grid-template-columns: repeat(3, 1fr); }
   .trust-band__inner { grid-template-columns: 1fr; }
 }
