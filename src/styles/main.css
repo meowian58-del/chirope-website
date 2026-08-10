@@ -261,7 +261,21 @@ h3 { font-size: 21px; }
   display: grid;
   align-content: end;
   background: var(--orange);
+  background-size: cover;
+  background-position: center;
   color: white;
+  overflow: hidden;
+  position: relative;
+  isolation: isolate;
+}
+.orange-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(10, 42, 62, 0) 35%, rgba(10, 42, 62, .18)),
+    rgba(39, 170, 211, .18);
 }
 .orange-card strong { font-size: 28px; line-height: 1.15; }
 .orange-card span { margin-top: 12px; color: rgba(255,255,255,.88); }

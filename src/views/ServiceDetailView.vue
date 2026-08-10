@@ -58,7 +58,10 @@ const related = computed(() =>
         <h2>Clear ownership across every service step.</h2>
         <p>CHIROPE connects route planning, document checks, cargo handoff and delivery communication into one practical workflow for B2B freight teams.</p>
       </article>
-      <aside class="orange-card">
+      <aside
+        class="orange-card"
+        :style="{ backgroundImage: `linear-gradient(90deg, rgba(22, 136, 173, .9), rgba(39, 170, 211, .66)), url(${page.heroImage})` }"
+      >
         <strong>Reliable Freight Support</strong>
         <span>Practical planning, responsive updates and coordinated handoff for commercial cargo.</span>
       </aside>

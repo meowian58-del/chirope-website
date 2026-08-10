@@ -66,7 +66,10 @@ const related = computed(() =>
         <h2>Connected planning for fewer disconnected handoffs.</h2>
         <p>CHIROPE keeps service selection, document checks, warehouse requirements and delivery updates aligned in one operating flow.</p>
       </article>
-      <aside class="orange-card">
+      <aside
+        class="orange-card"
+        :style="{ backgroundImage: `linear-gradient(90deg, rgba(22, 136, 173, .9), rgba(39, 170, 211, .66)), url(${page.heroImage})` }"
+      >
         <strong>Solution Highlight</strong>
         <span>One coordinated plan for commercial cargo movement, storage support and final delivery closure.</span>
       </aside>
