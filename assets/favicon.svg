@@ -1,9 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" role="img" aria-label="CHIROPE logo mark">
-  <rect width="320" height="240" rx="48" fill="#ffffff"/>
-  <g fill="#27aad3" transform="translate(13 10)">
-    <path d="M96 8c34-9 70-5 100 11-46 3-86 24-112 58-30 39-35 92-12 136C28 194 0 151 0 102 0 58 28 20 96 8Z"/>
-    <path d="M140 16 184 66l-58 14 56 16 16 58 22-52 48 64c-1 18-8 35-20 50-34 44-103 50-153 13-50-37-62-103-28-147 16-22 42-36 73-40Z"/>
-    <path d="M217 55 294 51l-12 64-47-64Z"/>
-    <path d="M282 115 244 205l-18-107Z"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW 2019 (64-Bit) -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="32px" height="32px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 32 32"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil0 {fill:none}
+    .fil1 {fill:#27AFDC}
+   ]]>
+  </style>
+ </defs>
+ <g id="图层_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <rect class="fil0" width="32" height="32"/>
+  <g id="_2516084992448">
+   <path class="fil1" d="M28.648 14.165c0.59,4.089 -0.811,8.388 -4.119,11.352 -5.257,4.71 -13.336,4.268 -18.046,-0.989 -4.71,-5.256 -4.268,-13.336 0.989,-18.046 3.308,-2.964 7.734,-3.887 11.735,-2.854 -1.902,0.139 -3.775,0.885 -5.305,2.256 -3.675,3.293 -3.985,8.941 -0.692,12.616 3.293,3.675 8.941,3.984 12.616,0.691 1.53,-1.371 2.476,-3.151 2.822,-5.026z"/>
+   <path class="fil1" d="M26.636 8.912c1.079,1.615 1.747,3.412 2.012,5.253 0,0 0,-0.001 0,-0.001 0,0 0,0 0,0 -0.935,-1.132 -1.87,-2.264 -2.805,-3.396 -0.695,1.759 -1.391,3.518 -2.087,5.277 -0.322,-2.043 -0.645,-4.086 -0.968,-6.128 -1.994,-0.544 -3.99,-1.088 -5.985,-1.632 1.761,-0.482 3.522,-0.963 5.282,-1.445 -0.96,-1.071 -1.919,-2.141 -2.878,-3.212 1.8,0.465 3.513,1.325 5.001,2.574 0.976,-0.06 1.952,-0.12 2.928,-0.181 -0.167,0.964 -0.333,1.927 -0.5,2.891z"/>
   </g>
+ </g>
 </svg>
