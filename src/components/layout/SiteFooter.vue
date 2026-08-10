@@ -11,7 +11,6 @@ import { solutions } from '../../data/solutions'
         <img class="footer-logo" src="/assets/chirope-logo.png" alt="CHIROPE Freight Service Limited" />
         <p>{{ site.tagline }}</p>
         <a :href="`mailto:${site.email}`">{{ site.email }}</a>
-        <span>{{ site.location }}</span>
       </div>
       <nav>
         <h2>Services</h2>
